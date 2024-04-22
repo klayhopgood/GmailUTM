@@ -1,12 +1,9 @@
-// popup.js
-
 document.getElementById('saveSettings').addEventListener('click', () => {
     const utmSource = document.getElementById('utmSource').value;
     const utmMedium = document.getElementById('utmMedium').value;
     const utmCampaign = document.getElementById('utmCampaign').value;
     const includeRecipient = document.getElementById('includeRecipient').checked;
 
-    // Save these values to Chrome's local storage
     chrome.storage.local.set({
         utmSource: utmSource,
         utmMedium: utmMedium,
@@ -18,7 +15,6 @@ document.getElementById('saveSettings').addEventListener('click', () => {
         } else {
             console.log('Settings saved');
 
-            // Send a message to the content script to update links
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.sendMessage(tabs[0].id, {action: "updateUTMParameters"});
             });
