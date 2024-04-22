@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>UTM Link Appender Options</title>
-    <!-- Include your CSS file if you have one -->
     <link rel="stylesheet" href="styles/popup.css">
 </head>
 <body>
     <h1>UTM Link Appender Options</h1>
-    <!-- The form doesn't need the 'action' attribute if the data isn't sent to a server -->
     <form id="utmForm">
         <label for="utmSource">Campaign Source:</label>
         <input type="text" id="utmSource" name="source" value="gmail" required readonly>
@@ -23,7 +21,6 @@
             <input type="checkbox" id="includeRecipient" name="includeRecipient"> Include Recipient Name
         </label>
         <br>
-        <!-- Changed the button type to 'button' since we handle the click event in JS -->
         <button type="button" id="saveSettings">Save</button>
     </form>
     <script src="popup.js"></script>
