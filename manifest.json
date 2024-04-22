@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail UTM Link Appender",
+  "version": "1.0",
+  "description": "Automatically appends UTM parameters to links in Gmail.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.mail.google.com/*"
+  ],
+  "action": {
+    "default_popup": "html/popup.html"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["src/content.js"]
+    }
+  ]
+}
